@@ -36,7 +36,7 @@ for x in x_list:
     print(f"Similarity : {cos_sim(x, y)}")
     print("---------------------------------")
 
-#distances 
+#distances
 x_norm = []
 for element in x_list:
     x_norm.append(tuple(element/minkowski_distance(element, (0,0), 2)))
