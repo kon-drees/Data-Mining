@@ -9,7 +9,7 @@ def smooth_mean(x, y):
     return x - arithmetic_mean(x, y)
 
 
-# iterative solution for a wavelet_transformations
+# an iterative solution for a wavelet_transformations
 def discrete_wavelet_transformation(data, threshold):
     step_data = list(data)
     if len(step_data) % 2 != 0:
