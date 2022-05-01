@@ -18,8 +18,8 @@ def discrete_wavelet_transformation(data, threshold):
     times = int(np.log2(length))
     solution = np.zeros((times+1, length))
     solution[0] = step_data
-    for i in range(0,times):
-        for j in range(0,2 ** (times-i), 2):
+    for i in range(0, times):
+        for j in range(0, 2 ** (times-i), 2):
             solution[i+1][int(j/2)] = (arithmetic_mean(solution[i][j], solution[i][j+1]))
         for j in range(0, 2 ** (times - i), 2):
             for k in range(i, times):
@@ -29,9 +29,9 @@ def discrete_wavelet_transformation(data, threshold):
 
 
 test_data = (96, 84, 92, 76, 28, 40, 32, 12, 48, 52, 80, 72, 24, 36, 36, 16)
-print(discrete_wavelet_transformation(test_data,5))
-test_data = (152, 228, 148, 176, 192, 220, 200, 32)
-print(discrete_wavelet_transformation(test_data,30))
+print(discrete_wavelet_transformation(test_data, 5))
+second_test_data = (152, 228, 148, 176, 192, 220, 200, 32)
+print(discrete_wavelet_transformation(second_test_data, 30))
 
 
 # an iterative solution for a progressive logarithmic tilted time function
@@ -42,9 +42,9 @@ def progressive_log_tilted_time_frame(timestamp, bk, b_max):
     for t in range(1, timestamp+1):
         if(np.log2(t)-bk <= b_max) and (b_max <= np.log2(t)):
             for i in range(0, i_max):
-                if((t%(2**i)==0) and (t%(2**(i+1))!=0)):
+                if (t % (2 ** i) == 0) and (t % (2 ** (i + 1)) != 0):
                     container = i
-            if (container >= b_max):
+            if container >= b_max:
                 container = b_max
             timetable[container].insert(0, t)
             timetable[container].pop()
@@ -67,5 +67,6 @@ def first_change_in_row6():
 print(progressive_log_tilted_time_frame(200, 5, 4))
 print(progressive_log_tilted_time_frame(200, 6, 3))
 print(progressive_log_tilted_time_frame(50, 5, 5))
-print(first_change_in_row6())
+print(f"First change: in row 6: {first_change_in_row6()}")
+
 

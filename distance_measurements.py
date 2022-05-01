@@ -8,7 +8,7 @@ def minkowski_distance(x, y, alpha):
     return distance
 
 
-def tschebyschew_distance(x,y):
+def tschebyschew_distance(x, y):
     array1, array2 = np.array(x), np.array(y)
     distance = abs(array1-array2)
     return max(distance)
